@@ -13,8 +13,8 @@ export class HumedadWsService {
   ) {}
   
   async findAll() {
-    const humedads = await this.humedadModel.find();
-    return humedads;
+    const humedads = await this.humedadModel.find().sort({_id:-1}).limit(16);
+    return humedads.reverse();
   }
 
 }

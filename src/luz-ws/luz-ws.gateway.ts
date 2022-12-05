@@ -22,6 +22,11 @@ export class LuzWsGateway {
     const luzs = await this.luzWsService.findAll();
     this.wss.emit('luzs-from-server', luzs);
   }
+
+
+  notificar(mensaje) {
+    this.wss.emit('notificacion', mensaje);
+  }
   
 
   

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-
+import { DataPoint, linear } from 'regression';
 import { Humedad } from '../humedad-ws/entities/humedad.entity';
 import { Luz } from '../luz-ws/entities/luz.entity';
 
@@ -20,21 +20,21 @@ export class RegresionWsService {
 
         const x = (await this.humedadModel.find().sort({_id:-1}).limit(16)).map( humedad => humedad.nivel );
         
-        const y = (await this.luzModel.find().sort({_id:-1}).limit(16)).map( luz => luz.dato);
+        const y = (await this.luzModel.find().sort({_id:-1}).limit(16)).map( luz => luz.nivel );
         
 
-        // const original: DataPoint[] = x.map( (_punto, i) => [x[i], y[i]]);
+        const original: DataPoint[] = x.map( (_punto, i) => [x[i], y[i]]);
         
-        // const sr = linear(original);
+        const sr = linear(original);
 
-        // const regression = this.predictY(x, y, sr);
+        const regression = this.predictY(x, y, sr);
 
 
         
-        // return {
-        //     original,
-        //     regression
-        // };
+        return {
+            original,
+            regression
+        };
 
         
     }

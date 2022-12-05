@@ -14,8 +14,7 @@ export class HumedadMqttController {
   @MessagePattern('humedad-input')
   async create(@Payload() payload: number, @Ctx() context: MqttContext) {
     await this.humedadMqttService.create(payload);
-    console.log('created');
-    this.humedadWsGateway.sendAll();
+    console.log('Humedad incertada');
   }
 
   

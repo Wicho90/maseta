@@ -16,7 +16,7 @@ export class Humedad {
     @Prop({
         index: true
     })
-    createAt: Date;
+    createAt: string;
     
 }
 

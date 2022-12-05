@@ -27,11 +27,8 @@ export class HumedadWsGateway {
     
   }
 
-
-  @MessagePattern('humedad-input')
-  create(@Payload() payload: number, @Ctx() context: MqttContext) {
-    console.log('From ws,', payload);
-     /// This is the websockets controller
+  notificar(mensaje: string) {
+    this.wss.emit('notificacion', mensaje);
   }
 
 

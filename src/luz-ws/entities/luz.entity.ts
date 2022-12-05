@@ -9,17 +9,17 @@ export class Luz extends Document{
     @Prop({
         index: true
     })
-    dato: number;
+    nivel: number;
     
     @Prop({
         index: true
     })
-    error: string
+    estado: string
 
     @Prop({
         index: true
     })
-    createAt: Date;
+    createAt: string;
 }
 
 

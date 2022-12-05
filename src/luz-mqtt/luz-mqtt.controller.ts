@@ -14,6 +14,5 @@ export class LuzMqttController {
   async create(@Payload() payload: number, @Ctx() context: MqttContext) {
     await this.luzMqttService.create(payload);
     console.log('Insercion hecha'); 
-    this.luzWsGateway.sendAll();
   }
 }

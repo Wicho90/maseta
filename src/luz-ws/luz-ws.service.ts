@@ -13,8 +13,8 @@ export class LuzWsService {
   ) {}
 
   async findAll() {
-    const luzs = await this.luzModel.find();
-    return luzs;
+    const luzs = await this.luzModel.find().sort({_id:-1}).limit(16);
+    return luzs.reverse();
   }
 
   
