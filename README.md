@@ -25,6 +25,7 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este es un backend que utiliza mqtt y websockets
 
 ## Installation
 
